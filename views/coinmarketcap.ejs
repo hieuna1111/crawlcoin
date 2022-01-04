@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Layout MTA</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <table align="center" border="1" width="95%">
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>symbol</th>
+            <th>slug</th>
+            <th>num_market_pairs</th>
+            <th>date_added</th>
+            <th>tags</th>
+            <th>max_supply</th>
+            <th>circulating_supply</th>
+            <th>total_supply</th>
+            <th>platform</th>
+            <th>cmc_rank</th>
+            <th>last_updated</th>
+            <th>quote</th>
+        </tr>
+        <tr>
+            <%
+            if(userData.length!=0){
+            var i=1;
+            userData.forEach(function(dt){
+            %>
+            <tr>
+                <td><%=i; %></td>
+                <td><%=dt.name %></td>
+                <td><%=dt.symbol %></td>
+                <td><%=dt.slug %></td>
+                <td><%=dt.num_market_pairs %></td>
+                <td><%=dt.date_added %></td>
+                <td><%=dt.tags %></td>
+                <td><%=dt.max_supply %></td>
+                <td><%=dt.circulating_supply %></td>
+                <td><%=dt.total_supply %></td>
+                <td><%=dt.platform %></td>
+                <td><%=dt.cmc_rank %></td>
+                <td><%=dt.last_updated %></td>
+                <td><%=dt.quote %></td>
+            </tr>
+            <%  i++; }) %>
+            <% } else{ %>
+                <tr>
+                    <td colspan="7">No Data Found</td>
+                </tr>
+            <% } %>
+        </tr>
+    </table>
+</body>
+</html>
